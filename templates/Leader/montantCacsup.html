@@ -1,0 +1,137 @@
+<!--app/template/debourre_Eces.html-->
+{% extends "mybase.html"%}
+{% load static %}
+{% block text1 %}Dépenses du CACSUP{% endblock   %}
+{% block text2 %}CACSUP{% endblock   %}
+{% block text3 %}montant{% endblock   %}
+{% block body %}
+        <div class="row">
+          <div class="col-12">
+    
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Les chiffres</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Debourre</th>
+                    <th>Entrée</th>
+                    <th>Sortie</th>
+                    <th>Ligne Budgetaire</th>
+                    <th>%Restant</th>
+                  </tr>
+                  </thead>
+                  <tbody id="display">
+                  
+                  <tr>
+                    <td>0</td>
+                    <td>
+                      10.000.000
+                    </td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>100%</td>
+                    <td> 
+                     
+                       <div class="btn-group">
+                        <button type="button" class="btn btn-info">Action</button>
+                        <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                          <span class="sr-only">Les actions à éffectuer</span>
+                        </button>
+                        <div class="dropdown-menu" role="menu">
+                          <a class="dropdown-item" href="#">Supprimer</a>
+                          <a class="dropdown-item" href="#">Modifier</a>
+                          <a class="dropdown-item" href="#">Ajouter</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
+                      </div></td>
+                  </tr>   
+                      
+                      <!-- <button type="button" class="btn btn-block btn-warning">modifier</button>
+                      <button type="button" class="btn btn-block btn-info" onclick="addDebourreInfo">ajouter</button>
+                      <button type="button" class="btn btn-block btn-danger" value="${counter++}"  onclick="removeDebourre(this)">supprimer</button> 
+                    </td>
+                  </tr> -->
+                  
+                  
+                 
+                 
+                  <!-- <tr>
+                    <td>Other browsers</td>
+                    <td>All others</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>U</td>
+                  </tr> -->
+                  </tbody>
+                  
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src=" {% static 'plugins/jquery/jquery.min.js' %} "></script>
+<!-- Bootstrap 4 -->
+<script src=" {% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+<!-- DataTables  & Plugins -->
+<script src=" {% static 'plugins/datatables/jquery.dataTables.min.js' %} "></script>
+<script src=" {% static 'plugins/datatables-bs4/js/dataTables.bootstrap4.min.js' %} "></script>
+<script src=" {% static 'plugins/datatables-responsive/js/dataTables.responsive.min.js' %} "></script>
+<script src=" {% static 'plugins/datatables-responsive/js/responsive.bootstrap4.min.js' %} "></script>
+<script src=" {% static 'plugins/datatables-buttons/js/dataTables.buttons.min.js' %} "></script>
+<script src=" {% static 'plugins/datatables-buttons/js/buttons.bootstrap4.min.js' %} "></script>
+<script src=" {% static 'plugins/jszip/jszip.min.js' %} "></script>
+<script src=" {% static 'plugins/pdfmake/pdfmake.min.js' %} "></script>
+<script src=" {% static 'plugins/pdfmake/vfs_fonts.js' %} "></script>
+<script src=" {% static 'plugins/datatables-buttons/js/buttons.html5.min.js' %} "></script>
+<script src=" {% static 'plugins/datatables-buttons/js/buttons.print.min.js' %} "></script>
+<script src=" {% static 'plugins/datatables-buttons/js/buttons.colVis.min.js' %} "></script>
+<!-- AdminLTE App -->
+<script src=" {% static 'dist/js/adminlte.min.js' %} "></script>
+<!-- AdminLTE for demo purposes -->
+<script src=" {% static 'dist/js/demo.js' %} "></script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+<script>
+  var tab1 = [1, 2, 3, 4];
+
+//simple copie
+var tab2 = tab1;   
+console.log(tab2); //[1, 2, 3, 4];
+
+//Mettre à jour le tableau d'origine
+tab1.push(5); //[1, 2, 3, 4, 5]
+
+//La mise à jour est reflétée dans le tableau copié
+console.log(tab2);  //[1, 2, 3, 4, 5]
+</script>
+{% endblock   %}
